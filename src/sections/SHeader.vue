@@ -2,7 +2,7 @@
   <header class="c-header">
     <div class="c-header__top container">
       <div class="c-header__logo">
-        <img src="logo.png" width="136" height="102" alt="логотип eurekakid" />
+        <img :src="logo" width="136" height="102" alt="логотип eurekakid" />
         <div>
           <p>eurekakid</p>
           <p>навигатор для родителей</p>
@@ -63,7 +63,8 @@ import { useRoute } from "vue-router";
 import CButton from "@/components/CButton.vue";
 import CTopSheet from "@/components/CTopSheet.vue";
 import { ref } from "vue";
-import CButtonLink from "../components/CButtonLink.vue";
+
+import logo from "../../public/logo.png";
 
 const navigation = [
   { id: 1, title: "Главная", link: "/" },
@@ -73,7 +74,7 @@ const navigation = [
   { id: 5, title: "События", link: "/events" },
 ];
 export default {
-  components: { CButton, CTopSheet, CButtonLink },
+  components: { CButton, CTopSheet },
   setup() {
     const route = useRoute();
     const topSheetMode = ref("hide");
@@ -98,6 +99,7 @@ export default {
       topSheetMode,
       compareRoute,
       navigation,
+      logo,
     };
   },
 };
